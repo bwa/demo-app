@@ -1,6 +1,6 @@
 # README #
 
-[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://bitbucket.org/arntzen/demo-app/src/master/)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/bwa/demo-app/)
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
