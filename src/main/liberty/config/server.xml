@@ -1,4 +1,4 @@
-<server description="ladekalkulator-servic-server">
+<server description="demo-server">
 
 	<featureManager>
   	    <feature>appSecurity-2.0</feature>
@@ -12,7 +12,6 @@
         <feature>restConnector-2.0</feature>
         <feature>jndi-1.0</feature>
         <feature>mpOpenAPI-1.1</feature>
-        <feature>mongodb-2.0</feature>  
 		<feature>mpConfig-1.4</feature>
 	</featureManager>
 	
@@ -29,7 +28,7 @@
 	
 	<!-- Dette er et trix for å sette contextRoot -->
 	<webApplication id="demo-app" 
-		location="demo-app.war" 
+		location="demo-app-github.war" 
 		contextRoot="/" />
 			
     <basicRegistry>
@@ -42,58 +41,20 @@
         <fileset dir="lib" include="postgres*.jar"/>
     </library>
 
-    <dataSource jndiName="jdbc/datasource">
-        <jdbcDriver libraryRef="jdbcLib"/>
-        <properties serverName="localhost" 
-                    portNumber="3333"
-                    databaseName="postgres"
-                    currentSchema="ladekalkulator"
-                    user="sander"
-                    password="{xor}Pio7Ni1n"/>
-    </dataSource>
+    <!-- her legger du inn eventuelle datasources 
+        <dataSource jndiName="jdbc/datasource">
+            <jdbcDriver libraryRef="jdbcLib"/>
+            <properties serverName="localhost" 
+            portNumber="3333"
+            databaseName="postgres"
+            currentSchema="ladekalkulator"
+            user="user"
+            password="password"/>
+        </dataSource>
+        
+    -->
 
-    <dataSource jndiName="jdbc/datasourceJPA3">
-        <jdbcDriver libraryRef="jdbcLib"/>
-        <properties serverName="192.168.0.90" 
-                    portNumber="5432"
-                    databaseName="postgres"
-                    currentSchema="ladekalkulatorJPA66"
-                    user="sander"
-                    password="{xor}Pio7Ni1n"/>
-    </dataSource>
-
-
-    <dataSource jndiName="jdbc/datasourceJPAnoTransactional" transactional="false">
-        <jdbcDriver libraryRef="jdbcLib"/>
-        <properties serverName="192.168.0.90" 
-                    portNumber="5432"
-                    databaseName="postgres"
-                    currentSchema="test2"
-                    user="sander"
-                    password="{xor}Pio7Ni1n"/>
-    </dataSource>
-
-    <dataSource jndiName="jdbc/datasourceJPA">
-        <jdbcDriver libraryRef="jdbcLib"/>
-        <properties serverName="192.168.0.90" 
-                    portNumber="5432"
-                    databaseName="postgres"
-                    currentSchema="test2"
-                    user="sander"
-                    password="{xor}Pio7Ni1n"/>
-    </dataSource>
-
-    <dataSource jndiName="jdbc/datasourceJPAcloud">
-        <jdbcDriver libraryRef="jdbcLib"/>
-        <properties serverName="localhost" 
-                    portNumber="3333"
-                    databaseName="postgres"
-                    currentSchema="ladekalkulatorJPA"
-                    user="sander"
-                    password="{xor}Pio7Ni1n"/>
-    </dataSource>
-
-<!-- 
+<!--  bruk denne for å trace database kall
 <logging  traceSpecification="eclipselink.sql=all"
   traceFileName="trace.log"
   maxFileSize="20"

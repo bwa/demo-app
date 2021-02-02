@@ -1,4 +1,4 @@
-package no.bwa.ladekalkulator;
+package no.bwa.demo;
 
 import javax.annotation.security.PermitAll;
 import javax.inject.Singleton;
@@ -10,30 +10,33 @@ import javax.ws.rs.core.Context;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-@Path("/demo")
+@Path("demo")
 @PermitAll()
 @Singleton
 public class DemoResource {
-	
-    private static final Logger log = LoggerFactory.getLogger(DemoResource.class);	
 
+    private static final Logger log = LoggerFactory.getLogger(DemoResource.class);
 
     public DemoResource() {
         log.debug("DemoResource created ... {}", this);
     }
 
     @GET
-	@Path("/hello")
+    @Path("hello")
     @PermitAll()
 
-	public String versionInfo(
-        @Context HttpServletRequest request
-    ) {
+    public String versionInfo(@Context HttpServletRequest request) {
 
         log.info("Hei, du er nå inne på DemoResource");
-        
-    	return "KalkulatorResource OK";		
+
+        try {
+            // lager en kunstik tenketidspause
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    	return "Greetings fra DemoResource";		
 	}
 	
 	

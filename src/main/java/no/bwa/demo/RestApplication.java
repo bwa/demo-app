@@ -1,4 +1,4 @@
-package no.bwa.ladekalkulator;
+package no.bwa.demo;
 
 /*
 import java.util.Collections;

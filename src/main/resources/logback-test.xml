@@ -8,7 +8,6 @@
   </appender>
   
    
-  <logger name="no.bwa" level="debug"/>
   <root level="info">
     <appender-ref ref="STDOUT" />
   </root>
