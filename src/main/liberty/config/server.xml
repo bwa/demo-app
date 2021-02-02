@@ -1,0 +1,104 @@
+<server description="ladekalkulator-servic-server">
+
+	<featureManager>
+  	    <feature>appSecurity-2.0</feature>
+        <feature>beanValidation-2.0</feature>
+        <feature>jsonp-1.1</feature>
+        <feature>cdi-2.0</feature>
+        <feature>jaxrs-2.1</feature>
+        <feature>jdbc-4.2</feature>
+        <feature>jpa-2.2</feature>
+        <feature>localConnector-1.0</feature>
+        <feature>restConnector-2.0</feature>
+        <feature>jndi-1.0</feature>
+        <feature>mpOpenAPI-1.1</feature>
+        <feature>mongodb-2.0</feature>  
+		<feature>mpConfig-1.4</feature>
+	</featureManager>
+	
+	
+	<basicRegistry id="basic" realm="customRealm">
+	     <user name="admin" password="admin" />
+	</basicRegistry>	
+	
+	<administrator-role>
+        <user>admin</user>   
+    </administrator-role>
+	
+	<httpEndpoint host="*" httpPort="9083" httpsPort="9443" id="defaultHttpEndpoint"/>
+	
+	<!-- Dette er et trix for å sette contextRoot -->
+	<webApplication id="demo-app" 
+		location="demo-app.war" 
+		contextRoot="/" />
+			
+    <basicRegistry>
+       <group name="Administrators">
+            <member name="bwa"/>
+       </group>
+    </basicRegistry>
+    
+    <library id="jdbcLib">
+        <fileset dir="lib" include="postgres*.jar"/>
+    </library>
+
+    <dataSource jndiName="jdbc/datasource">
+        <jdbcDriver libraryRef="jdbcLib"/>
+        <properties serverName="localhost" 
+                    portNumber="3333"
+                    databaseName="postgres"
+                    currentSchema="ladekalkulator"
+                    user="sander"
+                    password="{xor}Pio7Ni1n"/>
+    </dataSource>
+
+    <dataSource jndiName="jdbc/datasourceJPA3">
+        <jdbcDriver libraryRef="jdbcLib"/>
+        <properties serverName="192.168.0.90" 
+                    portNumber="5432"
+                    databaseName="postgres"
+                    currentSchema="ladekalkulatorJPA66"
+                    user="sander"
+                    password="{xor}Pio7Ni1n"/>
+    </dataSource>
+
+
+    <dataSource jndiName="jdbc/datasourceJPAnoTransactional" transactional="false">
+        <jdbcDriver libraryRef="jdbcLib"/>
+        <properties serverName="192.168.0.90" 
+                    portNumber="5432"
+                    databaseName="postgres"
+                    currentSchema="test2"
+                    user="sander"
+                    password="{xor}Pio7Ni1n"/>
+    </dataSource>
+
+    <dataSource jndiName="jdbc/datasourceJPA">
+        <jdbcDriver libraryRef="jdbcLib"/>
+        <properties serverName="192.168.0.90" 
+                    portNumber="5432"
+                    databaseName="postgres"
+                    currentSchema="test2"
+                    user="sander"
+                    password="{xor}Pio7Ni1n"/>
+    </dataSource>
+
+    <dataSource jndiName="jdbc/datasourceJPAcloud">
+        <jdbcDriver libraryRef="jdbcLib"/>
+        <properties serverName="localhost" 
+                    portNumber="3333"
+                    databaseName="postgres"
+                    currentSchema="ladekalkulatorJPA"
+                    user="sander"
+                    password="{xor}Pio7Ni1n"/>
+    </dataSource>
+
+<!-- 
+<logging  traceSpecification="eclipselink.sql=all"
+  traceFileName="trace.log"
+  maxFileSize="20"
+  maxFiles="10"
+  traceFormat="BASIC" />
+ -->
+     
+</server>
