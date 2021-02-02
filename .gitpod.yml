@@ -2,7 +2,7 @@ image:
   file: .gitpod.Dockerfile
   
 tasks:
-  - before: export DANGEROUSLY_DISABLE_HOST_CHECK=true ; mkdir -p ~/.ssh ; cp id_rsa ~/.ssh ; cp known_hosts ~/.ssh ; chmod -R 700 ~/.ssh
+  - before: export DANGEROUSLY_DISABLE_HOST_CHECK=true 
   - init: cd client && npm install && npm start
   - init: mvn install -DskipTests=false && mvn liberty:dev
   
