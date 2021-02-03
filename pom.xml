@@ -121,6 +121,12 @@
                                         <artifactId>postgresql</artifactId>
                                         <version>42.2.18</version>
                                     </dependency>
+                                    <dependency>
+                                    	<!-- preinstallere derby driver -->
+			                             <groupId>org.apache.derby</groupId>
+			                             <artifactId>derby</artifactId>
+                                         <version>10.14.2.0</version>
+                                    </dependency>
                                 </copyDependencies>
                             </configuration>
                         </execution>

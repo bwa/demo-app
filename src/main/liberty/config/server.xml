@@ -53,6 +53,46 @@
         </dataSource>
         
     -->
+    
+    
+	<!-- Derby Library Configuration -->
+	
+	  <library id="derbyJDBCLib">
+        <fileset dir="lib" include="derby*.jar"/>
+	  </library>
+	
+	  <dataSource id="derby"
+	              jndiName="jdbc/datasourceJPA">
+	      <jdbcDriver libraryRef="derbyJDBCLib" />
+	      <properties.derby.embedded databaseName="derbyDB" createDatabase="create"/>
+	  </dataSource>
+	  
+	  <!-- 
+	  
+	  	Det er veldig viktig å lage en non-transactional datasource, for JPA
+	  	bruker denne datasourcen for å opprette og modifisere databasen
+	  	i henhold til de entiteter som er lagt inn 
+	  	
+	  	se persinstence.xml, siden man har <property name="eclipselink.ddl-generation" value="create-tables"/>
+	  	så vil det blir opprettet database tabeller automatisk
+	  	
+	  	Om man vil gjøre dette manuelt i databasen, man man rta bort denne datasouren, men da man 
+	  	man endre 'create-tables' til 'none' 
+	  	
+	  	se https://www.eclipse.org/eclipselink/documentation/2.5/jpa/extensions/p_ddl_generation.htm
+	  	
+	  	-->
+	  
+	  <dataSource id="derbynoTransactional"
+	              jndiName="jdbc/datasourceJPAnoTransactional"
+	              transactional="false"
+	              >
+	      <jdbcDriver libraryRef="derbyJDBCLib" />
+	      <properties.derby.embedded databaseName="derbyDB" createDatabase="create"/>
+	  </dataSource>
+    
+    
+    jdbc/datasourceJPAnoTransactional
 
 <!--  bruk denne for å trace database kall
 <logging  traceSpecification="eclipselink.sql=all"
