@@ -1,5 +1,7 @@
 # README #
 
+Klikk på 'knappen/ikonet' under for å starter opp dette prosjektet i gitpod. Du må ha en bruker der for at det skal fungere
+
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/bwa/demo-app/)
 
 Dette er en demo for å starte helt fra scratch på en web app basert på 
