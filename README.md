@@ -2,8 +2,15 @@
 
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/bwa/demo-app/)
 
-Dette er en demo for å starte helt fra scratch på en web app baser på react/bootstrap frontend, og en JAX-RS(REST) basert backend på openLiberty
+Dette er en demo for å starte helt fra scratch på en web app basert på 
+
+- react/bootstrap frontend, 
+- JAX-RS(REST) basert backend på openLiberty
+- database med JPA eller JDBC
+- teknologier som er brukt er JEE (Jakarta), JPA (Database), CDI, Transactions (Transaksjoner)
+
+
 
 Det eneste du trenger å gjøre er å starte dette opp i gitpod, og venter til alle terminal vinduene er ferdig.
 
-Sett så Port 3000 public og velg Open Browser, da får du opp react GUI som hilser på sin server
+Sett så Port 3000 public og velg Open Browser, da får du opp react GUI som hilser på sin server og som da automatisk oppretter en databse og legger inn en liten testrad om det ikke finnes fra før
