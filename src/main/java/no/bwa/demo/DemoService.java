@@ -17,12 +17,12 @@ public class DemoService {
 
     
     public DemoService(PersistenceService persistenceService) {
-        log.info("KalkulatorService(PersistenceService) initialisert med persistenceService: {}", persistenceService);
+        log.info("DemoService(PersistenceService) initialisert med persistenceService: {}", persistenceService);
         this.persistenceService = persistenceService;
     }
     
     public DemoService() {
-        log.info("KalkulatorService() initialisert med CDI default persistenceService");
+        log.info("DemoService() initialisert med CDI default persistenceService");
     }
 
     public boolean addEntity(TestEntity entity) {
